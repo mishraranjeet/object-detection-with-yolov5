@@ -21,19 +21,16 @@ def consumer(queue_name):
         if message['type'] == 'image':
             image_url = message['url']
             output_location = message['output_location']
-            yolo.set_object(image_url, message["type"])
-            # perform inference
-            print("Detecting objects !!!")
-            output = yolo.objects_in_image(size=1280, augment=True)
-            # show detection bounding boxes on image
-            print("Showing output !!!")
-            yolo.show_results()
-            # save results into "results/" folder
-            print("Saving output !!!")
-            yolo.save_results(save_dir=output_location)
+            yolo.set_object(image_url, message["type"], output_location)
+            yolo.detect_and_save()
+            print("Saved output !!!")
 
         elif message['type'] == 'video':
-            pass
+            video_url = message['url']
+            output_location = message['output_location']
+            yolo.set_object(video_url, message["type"], output_location)
+            yolo.detect_and_save()
+            print("Saved output !!!")
 
     channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
 
