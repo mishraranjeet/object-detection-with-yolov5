@@ -2,7 +2,7 @@ import os
 import unittest
 from unittest.mock import MagicMock, patch
 import numpy as np
-from model import YOLOv5
+from app import YOLOv5
 
 
 class TestYOLOv5(unittest.TestCase):
