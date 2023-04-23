@@ -6,7 +6,12 @@ import pika
 from model import YOLOv5
 
 
-def consumer(queue_name):
+def consumer(queue_name: str):
+    """
+
+    :param queue_name: Name of the Queue
+    :return: consumer server
+    """
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host='localhost', port=5672))
     channel = connection.channel()

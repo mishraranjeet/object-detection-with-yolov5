@@ -19,7 +19,10 @@ FILE_NAME = "video.mp4"
 
 class YOLOv5:
     def __init__(self, model_name: str = "yolov5su.pt"):
-        # self.model = yolov5.load(model_name)
+        """
+
+        :param model_name: Pretrained model name
+        """
         self.model = YOLO(model_name)
         self.model.conf = 0.25  # NMS confidence threshold
         self.model.iou = 0.45  # NMS IoU threshold
@@ -33,6 +36,13 @@ class YOLOv5:
         self.save_dir = os.getcwd()
 
     def set_object(self, object_path: str, object_type: str, save_dir: str):
+        """
+
+        :param object_path: Object path either file name or url
+        :param object_type: type of object image or video only
+        :param save_dir: Location where output is saved after objects detection
+        :return:
+        """
         self.object_url = object_path
         self.object_type = object_type
         self.save_dir = save_dir
