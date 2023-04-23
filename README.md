@@ -34,3 +34,6 @@ Steps to run the project.
 7. See the saved image/video with the overlayed detection in the output location
 ```
 [![image.png](https://i.postimg.cc/5t4NvFW8/image.png)](https://postimg.cc/3kqTQNRw)
+
+## Result
+[![image.png](https://i.postimg.cc/mkv72yqY/image.png)](https://postimg.cc/1VK8vwyX)
