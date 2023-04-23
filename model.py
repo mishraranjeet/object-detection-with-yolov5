@@ -1,14 +1,13 @@
 import os
+import ssl
 import time
+from urllib.parse import urlparse
+from urllib.request import urlopen
 
 import cv2
 import numpy as np
-import yolov5
-from urllib.parse import urlparse
-from urllib.request import urlopen
-import ssl
-from ultralytics import YOLO
 from pytube import YouTube
+from ultralytics import YOLO
 
 # This restores the same behavior as before.
 context = ssl._create_unverified_context()
@@ -76,7 +75,7 @@ class YOLOv5:
             result = self.model.predict(source=self.object, save=True, project=os.getcwd(),
                                         name=self.save_dir)
         except Exception as e:
-            print("Object detection failed")
+            print("Object detection failed", e)
             raise ValueError("Object detection failed")
 
         finally:

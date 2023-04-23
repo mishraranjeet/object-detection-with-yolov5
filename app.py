@@ -1,8 +1,9 @@
-import sys
 import json
-from model import YOLOv5
+import sys
 
 import pika
+
+from model import YOLOv5
 
 
 def consumer(queue_name):
