@@ -68,7 +68,7 @@ class YOLOv5:
             self.object = image
 
     def detect_and_save(self):
-        if not self.object:
+        if self.object is None:
             print("Loading objects !!!")
             self.load_object()
         try:
